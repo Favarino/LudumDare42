@@ -17,10 +17,7 @@ public class PlayerController : MonoBehaviour {
 
     bool interacting;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    List<Cat> carriedCats = new List<Cat>();
 	
 	// Update is called once per frame
 	void Update () {
