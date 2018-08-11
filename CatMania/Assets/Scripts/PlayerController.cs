@@ -86,6 +86,26 @@ public class PlayerController : MonoBehaviour {
 
     void DelegateHowToInteract(Collider2D[] colliders)
     {
+        Interactables interactable = colliders[0].gameObject.GetComponent<Interactables>();
+        switch (interactable.type)
+        {
+            case Interactables.Types.CHORE:
+                {
+                    break;
+                }
+            case Interactables.Types.CAT:
+                {
+                    Cat cat = colliders[0].GetComponent<Cat>();
+                    BagCat(cat);
+                    break;
+                }
+            case Interactables.Types.BUSH:
+                {
+                    break;
+                }
+            default:
+                break;
+        }
         //For now use the first collider we get
         if (colliders[0].gameObject.GetComponent<Chore>() && Physics2D.OverlapCircle(interactCirlceDirection, interactRadius, interactableLayer))
         {
@@ -96,6 +116,23 @@ public class PlayerController : MonoBehaviour {
         {
             return;
         }
+    }
+
+    void BagCat(Cat cat)
+    {
+        carriedCats.Add(cat);
+        cat.OnInteraction();
+        cat.gameObject.SetActive(false);
+    }
+
+    void RemoveCat(Cat cat)
+    {
+        carriedCats.Remove(cat);
+    }
+
+    void RemoveAllCats()
+    {
+        carriedCats.Clear();
     }
 
     private void OnDrawGizmos()

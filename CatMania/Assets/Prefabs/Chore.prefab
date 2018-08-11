@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 4409878780455536}
   - component: {fileID: 212027087313502010}
   - component: {fileID: 114620529666795366}
+  - component: {fileID: 114814675187900440}
   - component: {fileID: 61139647891301056}
   m_Layer: 8
   m_Name: Chore
@@ -178,10 +179,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b43e420a021464293ff361375c0d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   progressBar: {fileID: 114360069683273486}
   completionText: SCOOPED
   timeToFinish: 3
+--- !u!114 &114814675187900440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782042373517434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24fedeef10cfa4042a44ed54654dd74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!212 &212027087313502010
 SpriteRenderer:
   m_ObjectHideFlags: 1

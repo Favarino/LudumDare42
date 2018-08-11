@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactables : MonoBehaviour {
-    enum Types { CHORE, CAT }
-    [SerializeField] Types type;
+    public enum Types { CHORE, CAT, BUSH }
+    public Types type;
 }
 
 interface IInteractable

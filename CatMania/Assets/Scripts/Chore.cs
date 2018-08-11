@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Chore : Interactables, IInteractable {
+public class Chore : MonoBehaviour, IInteractable {
     [SerializeField] Image progressBar;
     [SerializeField] string completionText;
 

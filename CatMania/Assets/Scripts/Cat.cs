@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cat : Interactables, IInteractable {
+public class Cat : MonoBehaviour, IInteractable {
     [SerializeField] float xWanderArea;
     [SerializeField] float yWanderArea;
     [SerializeField] Transform wanderAreaOrigin;
