@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour {
     void DelegateHowToInteract(Collider2D[] colliders)
     {
         //For now use the first collider we get
-        if(colliders[0].gameObject.GetComponent<Chore>())
+        if (colliders[0].gameObject.GetComponent<Chore>() && Physics2D.OverlapCircle(interactCirlceDirection, interactRadius, interactableLayer))
         {
             Chore chore = colliders[0].gameObject.GetComponent<Chore>();
             chore.OnInteraction();
