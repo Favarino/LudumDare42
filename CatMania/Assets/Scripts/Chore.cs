@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Chore : Interactables, IInteractable {
     [SerializeField] Image progressBar;
+    [SerializeField] string completionText;
 
     public float timeToFinish;
     float currentTime;
@@ -14,5 +16,15 @@ public class Chore : Interactables, IInteractable {
         currentTime += Time.deltaTime;
 
         progressBar.fillAmount = currentTime / timeToFinish;
+
+        if(currentTime>=timeToFinish)
+        {
+            Finished();
+        }
+    }
+
+    void Finished()
+    {
+        UiController.instance.SetCompletionText(completionText);
     }
 }
