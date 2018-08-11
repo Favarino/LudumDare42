@@ -12,6 +12,9 @@ public class Cat : Interactables, IInteractable {
 
     Vector2 goalArea;
 
+    Vector2 currentPos;
+    Vector2 lastPos;
+
     void Start()
     {
         wanderArea = new Rect(wanderAreaOrigin.position, new Vector2(xWanderArea, yWanderArea));
@@ -23,6 +26,13 @@ public class Cat : Interactables, IInteractable {
         if (goalArea != null)
         {
             float deltaSpeed = speed * Time.deltaTime;
+            lastPos = currentPos;
+            currentPos = transform.position;
+            float velocity = ((currentPos - lastPos).magnitude) / Time.deltaTime;
+            if(velocity<.5f)
+            {
+                goalArea=GetRandomPosInWanderArea();
+            }
             if (Vector2.Distance(transform.position, goalArea) >= .2f)
             {
                 transform.position = Vector2.MoveTowards(transform.position, goalArea, deltaSpeed);
@@ -56,5 +66,8 @@ public class Cat : Interactables, IInteractable {
         //vertical lines
         Gizmos.DrawLine(wanderAreaOrigin.position, new Vector2(wanderAreaOrigin.position.x, wanderAreaOrigin.position.y - yWanderArea));
         Gizmos.DrawLine(new Vector2(wanderAreaOrigin.position.x + xWanderArea, wanderAreaOrigin.position.y - yWanderArea), new Vector2(wanderAreaOrigin.position.x + xWanderArea, wanderAreaOrigin.position.y));
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(goalArea, .2f);
     }
 }
