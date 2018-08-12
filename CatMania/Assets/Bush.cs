@@ -26,12 +26,12 @@ public class Bush : Interactables, IInteractable{
         }
     }
 
-    void AddCat()
+    public void AddCat()
     {
         full = true;
         anim.SetTrigger("Full");
     }
-    void RemoveCat()
+    public void RemoveCat()
     {
         full = false;
         anim.SetTrigger("Shake");
